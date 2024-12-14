@@ -1,1 +1,114 @@
-<h1>coucou</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">API Documentation</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Authentication API Routes</h1>
+
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Register</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>URL:</strong> <code>POST /register/</code></p>
+                <p><strong>Description:</strong> Creates a new user account.</p>
+                <h6>Request Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "username": "exampleuser",
+                        "password": "securepassword"
+                    }
+                </pre>
+                <h6>Response Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "message": "User created successfully"
+                    }
+                </pre>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Login</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>URL:</strong> <code>POST /login/</code></p>
+                <p><strong>Description:</strong> Authenticates a user and provides JWT tokens.</p>
+                <h6>Request Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "username": "exampleuser",
+                        "password": "securepassword"
+                    }
+                </pre>
+                <h6>Response Example:</h6>
+                <pre class="bg-light p-3">
+                        {
+                            "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                            "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        }
+                </pre>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header ">
+                <h5>3. Logout</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>URL:</strong> <code>POST /logout/</code></p>
+                <p><strong>Description:</strong> Logs out the user by invalidating the refresh token.</p>
+                <h6>Request Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                </pre>
+                <h6>Response Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "message": "Logged out successfully"
+                    }
+                </pre>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Token Refresh</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>URL:</strong> <code>POST /token/refresh/</code></p>
+                <p><strong>Description:</strong> Generates a new access token using a valid refresh token.</p>
+                <h6>Request Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                </pre>
+                <h6>Response Example:</h6>
+                <pre class="bg-light p-3">
+                    {
+                        "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
